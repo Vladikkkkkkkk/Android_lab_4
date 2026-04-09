@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#1a1a2e"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Media Player"
+        android:textColor="#e0e0e0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="12dp">
+
+        <RadioGroup
+            android:id="@+id/rgMediaType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎵 Аудіо"
+                android:textColor="#e0e0e0"
+                android:buttonTint="#7c4dff"
+                android:checked="true"
+                android:paddingEnd="20dp"/>
+
+            <RadioButton
+                android:id="@+id/rbVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎥 Відео"
+                android:textColor="#e0e0e0"
+                android:buttonTint="#7c4dff"/>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/playerView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:visibility="gone"
+        android:background="#000000"/>
+
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Файл не обрано"
+        android:textColor="#b0b0b0"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:ellipsize="end"
+        android:singleLine="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/btnPickFile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📂 Пристрій"
+            android:backgroundTint="#7c4dff"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnRawFile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="📱 Сховище"
+            android:backgroundTint="#009688"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnUrlDialog"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🌐 Інтернет"
+            android:backgroundTint="#00bcd4"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:paddingBottom="12dp">
+
+        <EditText
+            android:id="@+id/etUrl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Введіть URL..."
+            android:textColor="#e0e0e0"
+            android:textColorHint="#757575"
+            android:backgroundTint="#7c4dff"
+            android:inputType="textUri"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnLoadUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▶ Завантажити"
+            android:backgroundTint="#4caf50"
+            android:textColor="#ffffff"/>
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progressTint="#7c4dff"
+        android:thumbTint="#7c4dff"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:textColor="#b0b0b0"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:textColor="#b0b0b0"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp">
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="▶ Play"
+            android:backgroundTint="#4caf50"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"/>
+
+        <Button
+            android:id="@+id/btnPause"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="⏸ Пауза"
+            android:backgroundTint="#ff9800"
+            android:textColor="#ffffff"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"/>
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="⏹ Стоп"
+            android:backgroundTint="#f44336"
+            android:textColor="#ffffff"
+            android:enabled="false"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Статус: очікування"
+        android:textColor="#7c4dff"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:paddingTop="16dp"/>
+
+</LinearLayout>
